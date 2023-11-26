@@ -1,0 +1,22 @@
+.againBtn{
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(171, 159, 159);
+    outline: none;
+    border: none;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 100ms ease;
+    color: white
+}
+
+.againBtn:hover{
+    transform: scale(1.25);
+    background-color: rgb(180, 168, 168);
+}
+
+.lost{
+    color: red;
+    font-size: 50px;
+}
