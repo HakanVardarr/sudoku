@@ -1,4 +1,4 @@
-import "./styles/youlost.css";
+import "./styles/textbutton.css";
 
 type Props = {
   text: string;
