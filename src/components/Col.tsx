@@ -44,9 +44,7 @@ function handleClick({
 
   if (checkValue(inputValue, colValue)) {
     setColValue(inputValue);
-    if (inputValue === answer) {
-      e.target.style.backgroundColor = "green";
-    } else {
+    if (inputValue !== answer) {
       e.target.style.backgroundColor = "red";
       let newLife = life - 1;
       onLifeChange(newLife);
