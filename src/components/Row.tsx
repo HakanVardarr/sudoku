@@ -8,7 +8,7 @@ type Props = {
   onLifeChange: (newLife: number) => void;
 };
 
-export function Row({ values, answer, life, onLifeChange }: Props) {
+function cols({ values, answer, life, onLifeChange }: Props) {
   const cols = [];
   for (let colIndex = 0; colIndex < 9; colIndex++) {
     cols.push(
@@ -21,6 +21,9 @@ export function Row({ values, answer, life, onLifeChange }: Props) {
       ></Col>
     );
   }
+  return cols;
+}
 
-  return <div className="row">{cols}</div>;
+export function Row(props: Props) {
+  return <div className="row">{cols(props)}</div>;
 }
