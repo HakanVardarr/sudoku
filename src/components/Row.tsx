@@ -6,9 +6,10 @@ type Props = {
   answer: Uint8Array;
   life: number;
   onLifeChange: (newLife: number) => void;
+  rowIndex: number;
 };
 
-function cols({ values, answer, life, onLifeChange }: Props) {
+function cols({ values, answer, life, onLifeChange, rowIndex }: Props) {
   const cols = [];
   for (let colIndex = 0; colIndex < 9; colIndex++) {
     cols.push(
@@ -18,6 +19,8 @@ function cols({ values, answer, life, onLifeChange }: Props) {
         answer={answer[colIndex]}
         life={life}
         onLifeChange={onLifeChange}
+        colIndex={colIndex}
+        rowIndex={rowIndex}
       ></Col>
     );
   }

@@ -10,7 +10,21 @@
     text-align: center;
     border-radius: 0;
     cursor: pointer;
-    caret-color: transparent;
+    background-color: rgb(219, 213, 213);
+}
+
+.notClickable{
+  cursor: default;
+  caret-color: transparent;
+}
+
+.borderLeft{
+  border-left: 4px solid black;
+  
+}
+
+.borderBottom{
+  border-bottom: 4px solid black;
 }
 
 

@@ -6,6 +6,8 @@ type Props = {
   answer: number;
   life: number;
   onLifeChange: (newLife: number) => void;
+  colIndex: number;
+  rowIndex: number;
 };
 
 type ClickEventProps = {
@@ -36,6 +38,10 @@ function handleClick({
 }: ClickEventProps) {
   let inputValue = +e.target.value as number;
 
+  if (colValue === answer) {
+    return;
+  }
+
   if (checkValue(inputValue, colValue)) {
     setColValue(inputValue);
     if (inputValue === answer) {
@@ -51,13 +57,39 @@ function handleClick({
   }
 }
 
-export function Col({ value, answer, life, onLifeChange }: Props) {
+export function Col({
+  value,
+  answer,
+  life,
+  onLifeChange,
+  colIndex,
+  rowIndex,
+}: Props) {
   let [colValue, setColValue] = useState(value);
-  return (
+  let clickable = colValue === answer;
+  let inputClass = "col";
+  let inputDivClass = "col notClickable";
+
+  if (rowIndex === 2 || rowIndex === 5) {
+    inputClass = "col borderBottom";
+    inputDivClass = "col notClickable  borderBottom";
+  }
+
+  if (colIndex === 3 || colIndex == 6) {
+    inputClass = "col borderLeft";
+    inputDivClass = "col notClickable borderLeft";
+    if (rowIndex === 2 || rowIndex === 5) {
+      inputClass = "col borderLeft borderBottom";
+      inputDivClass = "col notClickable borderLeft borderBottom";
+    }
+  }
+
+  let inputDiv = <div className={inputDivClass}>{colValue}</div>;
+  let input = (
     <input
       type="tel"
       name={value.toLocaleString()}
-      className="col"
+      className={inputClass}
       value={colValue === 0 ? " " : colValue}
       onChange={(e) => {
         handleClick({
@@ -71,4 +103,6 @@ export function Col({ value, answer, life, onLifeChange }: Props) {
       }}
     />
   );
+
+  return <>{clickable ? inputDiv : input}</>;
 }

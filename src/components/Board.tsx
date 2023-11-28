@@ -46,6 +46,7 @@ function rows({ life, onLifeChange }: Props) {
         answer={answer_board.slice(idx * 9, (idx + 1) * 9)}
         life={life}
         onLifeChange={onLifeChange}
+        rowIndex={idx}
       />
     );
   }
