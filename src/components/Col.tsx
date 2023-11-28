@@ -12,6 +12,7 @@ export function Col({ value, answer, life, onLifeChange }: Props) {
   let [colValue, setColValue] = useState(value);
   return (
     <input
+      type="tel"
       name={value.toLocaleString()}
       className="col"
       value={colValue === 0 ? " " : colValue}
