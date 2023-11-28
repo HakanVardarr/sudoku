@@ -1,18 +1,29 @@
 import { useState } from "react";
 import Board from "./components/Board";
-import { YouLost } from "./components/YouLost";
-import "./app.css";
+import { TextButton } from "./components/TextButton";
 
 function App() {
   let [life, setLife] = useState(3);
-  // let [start, setStart] = useState(false);
+  let [start, setStart] = useState(false);
 
   return (
     <>
-      {life !== 0 ? (
-        <Board life={life} onLifeChange={setLife} />
+      {start ? (
+        life !== 0 ? (
+          <Board life={life} onLifeChange={setLife} />
+        ) : (
+          <TextButton
+            text="You Lost"
+            buttonText="Try Again?"
+            onClick={() => setLife(3)}
+          />
+        )
       ) : (
-        <YouLost onClick={setLife} />
+        <TextButton
+          text="Press Start"
+          buttonText="Start"
+          onClick={() => setStart(true)}
+        />
       )}
     </>
   );

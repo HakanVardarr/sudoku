@@ -1,4 +1,4 @@
-.againBtn{
+.uiButton{
     padding: 20px;
     margin: 10px;
     background-color: rgb(171, 159, 159);
@@ -11,12 +11,12 @@
     color: white
 }
 
-.againBtn:hover{
+.uiButton:hover{
     transform: scale(1.25);
     background-color: rgb(180, 168, 168);
 }
 
-.lost{
+.uiText{
     color: red;
     font-size: 50px;
 }

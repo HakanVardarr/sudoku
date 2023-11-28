@@ -9,6 +9,12 @@
     outline: none;
     text-align: center;
     border-radius: 0;
+    cursor: pointer;
+}
+
+.notClickable{
+  cursor:default;
+  caret-color: transparent;
 }
 
 
